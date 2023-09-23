@@ -5,18 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AbrirArchivos"
         mc:Ignorable="d"
-        Title="Crear una nueva nota" Height="550" Width="700" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
-    <Grid>
-        <Button Content="Seleccionar " HorizontalAlignment="Left" Margin="198,10,0,0" VerticalAlignment="Top" Width="109" Height="26" Click="Button_Click"/>
-        <Label Content="Seleccionar directorio de destino" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="183"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="312,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358" Name="directorioDestino"/>
-        <Label Content="Seleccionar extensión" HorizontalAlignment="Left" Height="26" Margin="10,65,0,0" VerticalAlignment="Top" Width="125"/>
-        <RadioButton Content=".txt" HorizontalAlignment="Left" Margin="152,71,0,0" VerticalAlignment="Top" Name="radioTxt" GroupName="extension" IsChecked="True"/>
-        <RadioButton Content=".pdf" HorizontalAlignment="Left" Margin="226,71,0,0" VerticalAlignment="Top" Name="radioPdf" GroupName="extension" IsChecked="False"/>
-        <Label Content="Ingresar Texto:" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="87"/>
-        <TextBox Name="textoIngresado" HorizontalAlignment="Left" Height="293" Margin="102,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="556" AcceptsReturn="True" />
-        <Button Content="Guardar Nota" HorizontalAlignment="Left" Margin="102,464,0,0" VerticalAlignment="Top" Width="556" Height="43" Click="Button_Click_1"/>
-        <Label Content="Nombre del archivo" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="125"/>
-        <TextBox Name="nombreArchivo" HorizontalAlignment="Left" Height="26" Margin="140,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
-    </Grid>
+        Title="Crear una nueva nota" Height="550" Width="600" WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="true" 
+        >
+    <Border CornerRadius="30"
+            
+            BorderThickness="5">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                <GradientStop Color="#1D3E53" Offset="0"/>
+                <GradientStop Color="#254B62" Offset="0.75"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+
+        <Grid>
+            <Button Content="Seleccionar " HorizontalAlignment="Left" Margin="105,61,0,0" VerticalAlignment="Top" Background="#FF476D7C" Width="104" Height="26" Click="Button_Click" Foreground="#FFF9F7F7" FontSize="14" FontFamily="Segoe UI Semibold" BorderBrush="#FFF9F8F8"/>
+            <Label Content="Destino" HorizontalAlignment="Left" Height="26" Margin="38,60,0,0" VerticalAlignment="Top" Width="62" FontFamily="Segoe UI Semibold" Foreground="#FFFAFAFA" FontSize="14" RenderTransformOrigin="0.574,0.8" />
+            <TextBox HorizontalAlignment="Left" Height="26" Margin="214,61,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="340" Name="directorioDestino" BorderBrush="#FFFAFAFA" Background="#FF77ABB7" Foreground="#FFFDFDFD" FontSize="14" FontFamily="Segoe UI Semibold" />
+            <Label Content="Seleccionar extensión" HorizontalAlignment="Left" Height="26" Margin="36,102,0,0" VerticalAlignment="Top" Width="147" Foreground="#FFFCFBFB" FontSize="14" FontFamily="Segoe UI Semibold"/>
+            <RadioButton Content=".txt" HorizontalAlignment="Left" Margin="195,109,0,0" VerticalAlignment="Top" Name="radioTxt" GroupName="extension" IsChecked="True" Width="50" Foreground="#FFFCFAFA" FontSize="14" FontFamily="Segoe UI Semibold"/>
+            <RadioButton Content=".pdf" HorizontalAlignment="Left" Margin="258,109,0,0" VerticalAlignment="Top" Name="radioPdf" GroupName="extension" IsChecked="False" Foreground="#FFFAFAFA" FontSize="14" FontFamily="Segoe UI Semibold"/>
+            <TextBox Name="textoIngresado" HorizontalAlignment="Center" Height="293" Margin="0,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="519" AcceptsReturn="True" BorderBrush="#FFFDFDFD" Background="#FF77ABB7" Foreground="#FFFCFAFA" FontSize="14" FontFamily="Segoe UI Semibold" />
+            <Button Content="Guardar Nota" HorizontalAlignment="Center" Background="#FF476D7C" Margin="0,482,0,0" VerticalAlignment="Top" Width="240" Height="33" Click="Button_Click_1" FontSize="14" FontFamily="Segoe UI Semibold" Foreground="#FFFAFAFA" BorderBrush="#FFFCFCFC" Name="btn_guardar" IsEnabled="False"/>
+            <Label Content="Nombre del archivo" HorizontalAlignment="Left" Margin="36,139,0,0" VerticalAlignment="Top" Width="136" FontSize="14" FontFamily="Segoe UI Semibold" Background="{x:Null}" Foreground="White"/>
+            <TextBox Name="nombreArchivo" HorizontalAlignment="Left" Height="26" Margin="175,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="379" BorderBrush="#FFFCFCFC" Background="#FF77ABB7" FontSize="14" FontFamily="Segoe UI Semibold" Foreground="#FFF9F8F8" TextChanged="nombreArchivo_TextChanged"/>
+            <Button Content="X" HorizontalAlignment="Left" Margin="541,9,0,0" VerticalAlignment="Top" Name="btn_cerrar" Width="32" Height="30" FontSize="25" FontFamily="Arial Black" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE3D1D3" Click="btn_cerrar_Click" RenderTransformOrigin="0.612,0.54"  />
+        </Grid>
+    </Border>
 </Window>

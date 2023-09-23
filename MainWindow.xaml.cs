@@ -35,6 +35,10 @@ namespace AbrirArchivos
             
         }
 
+
+
+
+
         public void Refrescar(string ruta)
         {
             if(ruta.Trim()!="Archivos")
@@ -49,7 +53,7 @@ namespace AbrirArchivos
 
         public void Listar(string ruta)
         {
-            
+            try { 
             if(viewPath.Text == "")
             {
                 ruta = "Archivos";
@@ -62,46 +66,70 @@ namespace AbrirArchivos
                 listFiles.Items.Add($"{dir.Name} <{dir.CreationTime}>");
 
             }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) // carga un directorio seleccionado y lista los archivos dentro.
         {
             string ruta = string.Empty;
-            
-            FolderBrowserDialog dialog = new FolderBrowserDialog();
-
-            if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            try
             {
-                ruta = dialog.SelectedPath;
+
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    ruta = dialog.SelectedPath;
+                }
+
+                Listar(ruta);
+                viewPath.Text = "";
+                viewPath.Text = ruta;
+            }catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
             }
 
-            Listar(ruta);
-            viewPath.Text = "";
-            viewPath.Text= ruta;
-
-        }
+}
        private void Window_Loaded(object sender, RoutedEventArgs e) // Carga un directorio por defecto al abrir el programa
         {
-            if (viewPath.Text == "")
+            try
             {
-                ruta = "Archivos";
+                if (viewPath.Text == "")
+                {
+                    ruta = "Archivos";
+                }
+
+                Listar(ruta);
+                viewPath.Text = "";
+                viewPath.Text = ruta;
             }
-
-            Listar(ruta);
-            viewPath.Text = "";
-            viewPath.Text = ruta;
-
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e) // Abrir nueva ventana al agregar documento
         {
+            try
+            {
             Window1 nuevoArchivo = new Window1();
-            
             nuevoArchivo.Show();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)  //Eliminar archivos
         {
+            try { 
             string nombre = listFiles.SelectedItem.ToString();           
             string nombreregex = Regex.Replace(nombre, @"\<.*?\>", "");
             string path = viewPath.Text;
@@ -116,27 +144,66 @@ namespace AbrirArchivos
                 Refrescar(ruta);
 
             }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)  // boton actualizar
         {
-            ruta = viewPath.Text;
-            Refrescar(ruta);
+            try
+            {
+                ruta = viewPath.Text;
+                Refrescar(ruta);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
         }
 
         private void Window_Activated(object sender, EventArgs e) // Evento ventana
         {
+            try { 
             ruta = viewPath.Text;
             Refrescar(ruta);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e) // Abrir archivos
         {
+            try { 
             string nombre = listFiles.SelectedItem.ToString();
             string nombreregex = Regex.Replace(nombre, @"\<.*?\>", "");
             string path = viewPath.Text;
             string parametro = $"{path}\\{nombreregex}"; 
             Process.Start(parametro);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    DragMove();
+                }
+            
+        }
+
+        private void btn_cerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -5,10 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AbrirArchivos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
-    <Grid>
-        <Button Content="Listar Directorio" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="208" FontSize="12" Click="Button_Click" />
-        <ListBox Margin="11,101,284,11" Name="listFiles" RenderTransformOrigin="0.5,0.5" >
+        Title="Gestor de archivos" Height="550" Width="600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Activated="Window_Activated"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="true"
+        >
+
+    <Border CornerRadius="30"
+            
+            BorderThickness="5" MouseDown="Border_MouseDown">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                <GradientStop Color="#1D3E53" Offset="0"/>
+                <GradientStop Color="#254B62" Offset="0.75"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+
+            <Button Content="Buscar Directorio" HorizontalAlignment="Left" Height="36" Margin="41,67,0,0" VerticalAlignment="Top" Width="313" FontSize="18" Click="Button_Click" Background="#FF476D7C" FontFamily="Segoe UI Semibold" Foreground="White" BorderBrush="White"/>
+            <ListBox Margin="41,208,46,45" Name="listFiles" RenderTransformOrigin="0.5,0.5" Background="#FF77ABB7" Foreground="White" FontSize="14" FontFamily="Segoe UI Semibold" BorderBrush="White" >
+                <ListBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.232"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.505"/>
+                    </TransformGroup>
+                </ListBox.RenderTransform>
+            </ListBox>
+            <TextBox TextAlignment="Center" HorizontalAlignment="Left" Height="36" Margin="41,113,0,0" TextWrapping="Wrap" Name="viewPath" VerticalAlignment="Top" Width="500" FontSize="16" Foreground="#FFFCFAFA" FontFamily="Segoe UI Semibold" BorderBrush="White" >
+                <TextBox.Background>
+                    <SolidColorBrush Color="#FF77ABB7"/>
+                </TextBox.Background>
+            </TextBox>
+            <Button Content="Crear Nueva Nota" HorizontalAlignment="Left" Margin="41,161,0,0" VerticalAlignment="Top" Width="198" Height="36" Click="Button_Click_1" Background="#FF2B6A83" Foreground="White" FontSize="14" FontFamily="Segoe UI Semibold" BorderBrush="White"/>
+            <Button Content="Leer Nota" HorizontalAlignment="Left" Margin="244,161,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_4" Background="#FF476D7C" FontSize="14" FontFamily="Segoe UI Semibold" Foreground="#FFFDFDFD" BorderBrush="White" />
+            <Button Content="Eliminar nota" HorizontalAlignment="Left" Margin="395,161,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_2" Background="#FF476D7C" Foreground="White" FontSize="14" FontFamily="Segoe UI Semibold" BorderBrush="White" />
+            <Button Content="Actualizar Lista" HorizontalAlignment="Left" Height="36" Margin="366,67,0,0" VerticalAlignment="Top" Width="175" Click="Button_Click_3" Background="#FF476D7C" Foreground="White" FontSize="14" FontFamily="Segoe UI Semibold" BorderBrush="White"/>
+            <Button Content="X" HorizontalAlignment="Left" Margin="541,9,0,0" VerticalAlignment="Top" Name="btn_cerrar" Width="32" Height="30" FontSize="25" FontFamily="Arial Black" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE3D1D3" Click="btn_cerrar_Click" RenderTransformOrigin="0.612,0.54"  />
+
+        </Grid>
+
+    </Border>
+
+
+
+
+
+    <!--<Grid>
+        
+        <Button Content="Listar Directorio" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="340" FontSize="12" Click="Button_Click" />
+        <ListBox Margin="11,101,179,11" Name="listFiles" RenderTransformOrigin="0.5,0.5" >
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,11 +67,13 @@
                 </TransformGroup>
             </ListBox.RenderTransform>
         </ListBox>
-        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Height="36" Margin="10,51,0,0" TextWrapping="Wrap" Name="viewPath" VerticalAlignment="Top" Width="326" FontSize="14" />
-        <Button Content="Crear Nueva Nota" HorizontalAlignment="Left" Margin="421,103,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_1"/>
-        <Button Content="Leer Nota" HorizontalAlignment="Left" Margin="421,142,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_4" />
-        <Button Content="Eliminar nota" HorizontalAlignment="Left" Margin="421,181,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_2" />
-        <Button Content="Actualizar Lista" HorizontalAlignment="Left" Height="36" Margin="223,10,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click_3"/>
+        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Height="36" Margin="10,51,0,0" TextWrapping="Wrap" Name="viewPath" VerticalAlignment="Top" Width="512" FontSize="14" />
+        <Button Content="Crear Nueva Nota" HorizontalAlignment="Left" Margin="535,103,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_1"/>
+        <Button Content="Leer Nota" HorizontalAlignment="Left" Margin="535,142,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_4" />
+        <Button Content="Eliminar nota" HorizontalAlignment="Left" Margin="535,181,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_2" />
+        <Button Content="Actualizar Lista" HorizontalAlignment="Left" Height="36" Margin="369,10,0,0" VerticalAlignment="Top" Width="153" Click="Button_Click_3"/>
 
-    </Grid>
+    </Grid>-->
+
+
 </Window>

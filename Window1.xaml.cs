@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,62 +22,77 @@ namespace AbrirArchivos
     public partial class Window1 : Window
     {
 
+        public string path = "Archivos";
+        
         public Window1()
         {     
             InitializeComponent();
-
+           
         }
-
         private void Button_Click(object sender, RoutedEventArgs e) // seleccionar directorio
         {
-           
-           string path = "Archivos";
+            try
+            {
+                string path = "Archivos";
 
-           FolderBrowserDialog dialog = new FolderBrowserDialog();
+                FolderBrowserDialog dialog = new FolderBrowserDialog();
 
-           if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-           {
-              path = dialog.SelectedPath;  
-              
-           }
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    path = dialog.SelectedPath;
 
-           directorioDestino.Text = path;
+                }
 
-        }
+                directorioDestino.Text = path;
+            }catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
+
+}
         private void Window_Loaded(object sender, RoutedEventArgs e) //evento de ventana
         {
-            string path = "Archivos";
+            try
+            {
+                string path = "Archivos";
 
-            directorioDestino.Text = path;
-              
-        }
+                directorioDestino.Text = path;
+                
+           
+            }catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
+}
 
         private void Button_Click_1(object sender, RoutedEventArgs e)  // boton guardar nota
         {
-            string path = directorioDestino.Text.ToString();
-            string nombreGenerico = Guid.NewGuid().ToString();
-            string nombre = $"Archivo - {nombreGenerico}";
-            string contenido = textoIngresado.Text;
+            try { 
 
-            string extension;
+                string path = directorioDestino.Text.ToString();
+                string nombreGenerico = Guid.NewGuid().ToString();
+                string nombre = $"Archivo - {nombreGenerico}";
+                string contenido = textoIngresado.Text;
+                string extension;
 
-           if (radioTxt.IsChecked == true)
-            {
-                extension = radioTxt.Content.ToString();
-            }
-            else
-            {
-                extension = radioPdf.Content.ToString();
-            }
+                if (radioTxt.IsChecked == true)
+                {
+                    extension = radioTxt.Content.ToString();
+                }
+                else
+                {
+                    extension = radioPdf.Content.ToString();
+                }
 
-            if (nombre.Trim() == "")
-            {
-                nombre = nombreGenerico;
-            }
-            else
-            {
-                nombre = nombreArchivo.Text;
-            }
+                if (nombre.Trim() == "")
+                {
+                    nombre = nombreGenerico;
+                }
+                else
+                {
+                    nombre = nombreArchivo.Text;
+                }
+                
 
             string parametro = $"{path}\\{nombre}{extension}";
 
@@ -86,13 +102,30 @@ namespace AbrirArchivos
                 writer.Flush();
             }
 
-            textoIngresado.Text = "";
-            nombreArchivo.Text = "";
+                textoIngresado.Text = "";
+                nombreArchivo.Text = "";
 
-            
+            }catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Error: {ex.Message} en {MethodBase.GetCurrentMethod().Name}");
+            }
+
+
             this.Close();    
 
         }
-   
+
+        private void btn_cerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void nombreArchivo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            btn_guardar.IsEnabled = true;
+           
+        }
     }
 }
