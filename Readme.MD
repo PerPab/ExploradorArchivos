@@ -7,7 +7,7 @@
   
   
 </br>
-![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg?raw=true)
+![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg)
 
 ![Alt text](image link)
 
