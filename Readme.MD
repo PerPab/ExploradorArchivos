@@ -7,7 +7,7 @@
   
   
 </br>
-<img></img>
+<img>https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg?raw=true</img>
 
 
 
