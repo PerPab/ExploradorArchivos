@@ -7,7 +7,11 @@
   
   
 </br>
+![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg?raw=true)
 
+![Alt text](image link)
+
+![Alt text](image link)
 
 
 </br>
