@@ -7,7 +7,8 @@
   
   
 </br>
-<img>https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg?raw=true</img>
+<img>https://github.com/PerPab/Practica-Robots/assets/104698937/19f6b5b8-d9f3-40b3-b4fd-fb2dd14fb754</img>
+![robot2](https://github.com/PerPab/Practica-Robots/assets/104698937/19f6b5b8-d9f3-40b3-b4fd-fb2dd14fb754)
 
 
 
