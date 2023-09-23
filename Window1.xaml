@@ -1,0 +1,22 @@
+﻿<Window x:Class="AbrirArchivos.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AbrirArchivos"
+        mc:Ignorable="d"
+        Title="Crear una nueva nota" Height="550" Width="700" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid>
+        <Button Content="Seleccionar " HorizontalAlignment="Left" Margin="198,10,0,0" VerticalAlignment="Top" Width="109" Height="26" Click="Button_Click"/>
+        <Label Content="Seleccionar directorio de destino" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="183"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="312,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358" Name="directorioDestino"/>
+        <Label Content="Seleccionar extensión" HorizontalAlignment="Left" Height="26" Margin="10,65,0,0" VerticalAlignment="Top" Width="125"/>
+        <RadioButton Content=".txt" HorizontalAlignment="Left" Margin="152,71,0,0" VerticalAlignment="Top" Name="radioTxt" GroupName="extension" IsChecked="True"/>
+        <RadioButton Content=".pdf" HorizontalAlignment="Left" Margin="226,71,0,0" VerticalAlignment="Top" Name="radioPdf" GroupName="extension" IsChecked="False"/>
+        <Label Content="Ingresar Texto:" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="87"/>
+        <TextBox Name="textoIngresado" HorizontalAlignment="Left" Height="293" Margin="102,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="556" AcceptsReturn="True" />
+        <Button Content="Guardar Nota" HorizontalAlignment="Left" Margin="102,464,0,0" VerticalAlignment="Top" Width="556" Height="43" Click="Button_Click_1"/>
+        <Label Content="Nombre del archivo" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Width="125"/>
+        <TextBox Name="nombreArchivo" HorizontalAlignment="Left" Height="26" Margin="140,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518"/>
+    </Grid>
+</Window>

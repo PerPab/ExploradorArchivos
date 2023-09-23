@@ -1,0 +1,27 @@
+﻿<Window x:Class="AbrirArchivos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AbrirArchivos"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Content="Listar Directorio" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="326" FontSize="12" Click="Button_Click" />
+        <ListBox Margin="11,101,357,11" Name="listFiles" RenderTransformOrigin="0.5,0.5" >
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0.232"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0.505"/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
+        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Height="36" Margin="10,51,0,0" TextWrapping="Wrap" Name="viewPath" VerticalAlignment="Top" Width="326" FontSize="14"/>
+        <Button Content="Crear Nueva Nota" HorizontalAlignment="Left" Margin="353,103,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_1"/>
+        <Button Content="Leer Nota" HorizontalAlignment="Left" Margin="353,144,0,0" VerticalAlignment="Top" Width="146" Height="36" />
+        <Button Content="Eliminar nota" HorizontalAlignment="Left" Margin="353,185,0,0" VerticalAlignment="Top" Width="146" Height="36" />
+
+    </Grid>
+</Window>
