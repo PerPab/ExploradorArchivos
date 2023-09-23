@@ -1,0 +1,25 @@
+private void Button_Click(object sender, RoutedEventArgs e) // carga un directorio seleccionado y lista los archivos dentro.
+        {
+            string ruta = string.Empty;
+            
+
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+
+            if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                ruta = dialog.SelectedPath;
+            }
+
+            DirectoryInfo directoryInfo = new DirectoryInfo(ruta);
+
+            listFiles.Items.Clear();
+            foreach (var dir in directoryInfo.GetFiles())
+            {
+                listFiles.Items.Add($"{dir.Name} - {dir.CreationTime}");
+                
+            }
+
+            viewPath.Text = "";
+            viewPath.Text= ruta;
+
+        }

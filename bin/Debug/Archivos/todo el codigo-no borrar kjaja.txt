@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +18,6 @@ using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Text.RegularExpressions;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace AbrirArchivos
 {
@@ -32,34 +30,38 @@ namespace AbrirArchivos
         public MainWindow()
         {
             InitializeComponent();
+ 
             
         }
 
-        public void Refrescar(string ruta)
+        public void Refrescar()
         {
             if(ruta.Trim()!="Archivos")
             {
                 ruta = viewPath.Text;
 
             }
+            DirectoryInfo directoryInfo = new DirectoryInfo(ruta);
 
-            Listar(ruta);
+            listFiles.Items.Clear();
+
+            foreach (var dir in directoryInfo.GetFiles())
+            {
+                listFiles.Items.Add($"{dir.Name} - {dir.CreationTime}");
+
+            }
+
 
         }
 
         public void Listar(string ruta)
         {
-            
-            if(viewPath.Text == "")
-            {
-                ruta = "Archivos";
-            }
-
             DirectoryInfo directoryInfo = new DirectoryInfo(ruta);
+
             listFiles.Items.Clear();
             foreach (var dir in directoryInfo.GetFiles())
             {
-                listFiles.Items.Add($"{dir.Name} <{dir.CreationTime}>");
+                listFiles.Items.Add($"{dir.Name}");
 
             }
         }
@@ -68,6 +70,7 @@ namespace AbrirArchivos
         {
             string ruta = string.Empty;
             
+
             FolderBrowserDialog dialog = new FolderBrowserDialog();
 
             if(dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -75,19 +78,33 @@ namespace AbrirArchivos
                 ruta = dialog.SelectedPath;
             }
 
-            Listar(ruta);
+            DirectoryInfo directoryInfo = new DirectoryInfo(ruta);
+
+            listFiles.Items.Clear();
+            foreach (var dir in directoryInfo.GetFiles())
+            {
+                listFiles.Items.Add($"{dir.Name} - {dir.CreationTime}");
+                
+            }
+
             viewPath.Text = "";
             viewPath.Text= ruta;
 
         }
-       private void Window_Loaded(object sender, RoutedEventArgs e) // Carga un directorio por defecto al abrir el programa
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e) // Carga un directorio por defecto al abrir el programa
         {
-            if (viewPath.Text == "")
+           
+            DirectoryInfo directoryInfo = new DirectoryInfo(ruta);
+
+            listFiles.Items.Clear();
+            foreach (var dir in directoryInfo.GetFiles())
             {
-                ruta = "Archivos";
+                listFiles.Items.Add($"{dir.Name} - {dir.CreationTime}");
+
             }
 
-            Listar(ruta);
             viewPath.Text = "";
             viewPath.Text = ruta;
 
@@ -100,42 +117,48 @@ namespace AbrirArchivos
             nuevoArchivo.Show();
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)  //Eliminar archivos
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            string nombre = listFiles.SelectedItem.ToString();           
-            string nombreregex = Regex.Replace(nombre, @"\<.*?\>", "");
+            string nombre = listFiles.SelectedItem.ToString();
+            
             string path = viewPath.Text;
-            string parametro = $"{path}\\{nombreregex}";
-            var result = System.Windows.MessageBox.Show($"Esta seguro que desea eliminar el archivo {nombreregex}", "Cuidado", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            string parametro = $"{path}\\{nombre}";
+
+            var result = System.Windows.MessageBox.Show($"Esta seguro que desea eliminar el archivo {nombre}", "Cuidado", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
             if (result == MessageBoxResult.Yes)
             {
             File.Delete(parametro);
 
-                ruta = viewPath.Text;
-
-                Refrescar(ruta);
-
+            Refrescar();
+                
             }
+
+            
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)  // boton actualizar
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            ruta = viewPath.Text;
-            Refrescar(ruta);
+            Refrescar();
         }
 
-        private void Window_Activated(object sender, EventArgs e) // Evento ventana
+        private void Window_Activated(object sender, EventArgs e)
         {
-            ruta = viewPath.Text;
-            Refrescar(ruta);
+            Refrescar();
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e) // Abrir archivos
+        private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             string nombre = listFiles.SelectedItem.ToString();
-            string nombreregex = Regex.Replace(nombre, @"\<.*?\>", "");
+
             string path = viewPath.Text;
-            string parametro = $"{path}\\{nombreregex}"; 
+
+            string parametro = $"{path}\\{nombre}";
+
+
+            
+
             Process.Start(parametro);
         }
     }

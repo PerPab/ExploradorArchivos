@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AbrirArchivos"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="550" Width="700" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Activated="Window_Activated">
     <Grid>
-        <Button Content="Listar Directorio" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="326" FontSize="12" Click="Button_Click" />
-        <ListBox Margin="11,101,357,11" Name="listFiles" RenderTransformOrigin="0.5,0.5" >
+        <Button Content="Listar Directorio" HorizontalAlignment="Left" Height="36" Margin="10,10,0,0" VerticalAlignment="Top" Width="208" FontSize="12" Click="Button_Click" />
+        <ListBox Margin="11,101,284,11" Name="listFiles" RenderTransformOrigin="0.5,0.5" >
             <ListBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -18,10 +18,11 @@
                 </TransformGroup>
             </ListBox.RenderTransform>
         </ListBox>
-        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Height="36" Margin="10,51,0,0" TextWrapping="Wrap" Name="viewPath" VerticalAlignment="Top" Width="326" FontSize="14"/>
-        <Button Content="Crear Nueva Nota" HorizontalAlignment="Left" Margin="353,103,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_1"/>
-        <Button Content="Leer Nota" HorizontalAlignment="Left" Margin="353,144,0,0" VerticalAlignment="Top" Width="146" Height="36" />
-        <Button Content="Eliminar nota" HorizontalAlignment="Left" Margin="353,185,0,0" VerticalAlignment="Top" Width="146" Height="36" />
+        <TextBox TextAlignment="Center" HorizontalAlignment="Left" Height="36" Margin="10,51,0,0" TextWrapping="Wrap" Name="viewPath" VerticalAlignment="Top" Width="326" FontSize="14" />
+        <Button Content="Crear Nueva Nota" HorizontalAlignment="Left" Margin="421,103,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_1"/>
+        <Button Content="Leer Nota" HorizontalAlignment="Left" Margin="421,142,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_4" />
+        <Button Content="Eliminar nota" HorizontalAlignment="Left" Margin="421,181,0,0" VerticalAlignment="Top" Width="146" Height="36" Click="Button_Click_2" />
+        <Button Content="Actualizar Lista" HorizontalAlignment="Left" Height="36" Margin="223,10,0,0" VerticalAlignment="Top" Width="113" Click="Button_Click_3"/>
 
     </Grid>
 </Window>

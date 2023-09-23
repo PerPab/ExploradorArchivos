@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,33 +20,30 @@ namespace AbrirArchivos
     
     public partial class Window1 : Window
     {
-        
+
         public Window1()
-        {
+        {     
             InitializeComponent();
-
-
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e) // seleccionar directorio
         {
            
-           string path = string.Empty;
+           string path = "Archivos";
 
            FolderBrowserDialog dialog = new FolderBrowserDialog();
 
            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
            {
-              path = dialog.SelectedPath;
+              path = dialog.SelectedPath;  
               
            }
 
            directorioDestino.Text = path;
 
         }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e) //evento de ventana
         {
             string path = "Archivos";
 
@@ -53,16 +51,14 @@ namespace AbrirArchivos
               
         }
 
-        
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)  // boton guardar nota
         {
             string path = directorioDestino.Text.ToString();
             string nombreGenerico = Guid.NewGuid().ToString();
             string nombre = $"Archivo - {nombreGenerico}";
             string contenido = textoIngresado.Text;
 
-            string extension = string.Empty;
+            string extension;
 
            if (radioTxt.IsChecked == true)
             {
@@ -93,12 +89,10 @@ namespace AbrirArchivos
             textoIngresado.Text = "";
             nombreArchivo.Text = "";
 
-            this.Close();
-
             
+            this.Close();    
 
         }
-
-        
+   
     }
 }
