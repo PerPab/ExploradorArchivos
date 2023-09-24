@@ -7,13 +7,7 @@
   
   
 </br>
-![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg)
-
-<img>https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg</img>
-
-![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto2.png)
-
-![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto3.jpg)
+<img>https://github.com/PerPab/ExploradorArchivos/blob/master/foto3.jpg</img>
 
 
 </br>
