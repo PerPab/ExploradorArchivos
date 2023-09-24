@@ -8,7 +8,7 @@
   
 </br>
 
-<img src="https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg" height="160" width="160" align="right"></img>
+<img src="https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg" height="260" width="260" align="center"></img>
 
 
 
