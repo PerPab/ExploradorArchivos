@@ -7,7 +7,6 @@
   
   
 </br>
-<img width=100 height=100 >https://github.com/PerPab/ExploradorArchivos/blob/master/foto3.jpg</img>
 
 
 ![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg)
