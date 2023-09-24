@@ -8,6 +8,7 @@
   
 </br>
 <img>https://github.com/PerPab/ExploradorArchivos/blob/master/foto3.jpg</img>
+![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg)
 
 
 </br>
