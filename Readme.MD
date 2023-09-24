@@ -2,7 +2,7 @@
 
 </br>
 
--- Un explorador de archivos que permite navegar e ingresar en directorios, crear, leer y eleminar archivos, para crear la interfaz utilicé WPF --
+-- Un explorador de archivos que permite navegar e ingresar en directorios, crear, leer y eleminar archivos. Para crear la interfaz utilicé WPF --
 
   
   
