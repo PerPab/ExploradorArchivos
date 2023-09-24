@@ -8,8 +8,8 @@
   
 </br>
 
+<img src="https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg" height="160" width="160" align="right"></img>
 
-![Alt text](https://github.com/PerPab/ExploradorArchivos/blob/master/foto1.jpg)
 
 
 </br>
